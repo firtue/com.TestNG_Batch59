@@ -24,7 +24,7 @@ public class TestBaseRapor {
 
             //rapor oluştuktan sonra raporunuz nereye eklensin istiyorsanız buraya yazıyorsunuz.
             String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-            String filePath = System.getProperty("user.dir") + "/test-output/Rapor"+date+".html";
+            String filePath = System.getProperty("user.dir") + "/target/Rapor/rapor"+date+".html";
 
             //oluşturmak istediğimiz raporu (html formatında) başlatıyoruz, filePath ile dosya yolunu belirliyoruz.
             extentHtmlReporter = new ExtentHtmlReporter(filePath);
@@ -33,8 +33,8 @@ public class TestBaseRapor {
             // İstediğiniz bilgileri buraya ekeyebiliyorsunuz.
             extentReports.setSystemInfo("Enviroment","QA");
             extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
-            extentReports.setSystemInfo("Automation Engineer", "Mehmet");
-            extentHtmlReporter.config().setDocumentTitle("Son Test");
+            extentReports.setSystemInfo("Automation Engineer", "Firtue");
+            extentHtmlReporter.config().setDocumentTitle("Rapor");
             extentHtmlReporter.config().setReportName("TestNG Reports");
         }
 
@@ -49,7 +49,7 @@ public class TestBaseRapor {
                 extentTest.addScreenCaptureFromPath(screenshotLocation);
                 extentTest.fail(result.getThrowable());
             } else if (result.getStatus() == ITestResult.SKIP) { // eğer test çalıştırılmadan geçilmezse
-                extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
+                extentTest.skip("Test Case is skipped: " + nn.getName()); // Ignore olanlar
             }
             Driver.closeDriver();
         }
