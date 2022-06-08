@@ -49,7 +49,7 @@ public class TestBaseRapor {
                 extentTest.addScreenCaptureFromPath(screenshotLocation);
                 extentTest.fail(result.getThrowable());
             } else if (result.getStatus() == ITestResult.SKIP) { // eğer test çalıştırılmadan geçilmezse
-                extentTest.skip("Test Case is skipped: " + nn.getName()); // Ignore olanlar
+                extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
             }
             Driver.closeDriver();
         }
