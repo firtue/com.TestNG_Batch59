@@ -2,7 +2,6 @@ package utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -25,6 +24,6 @@ public class TestBaseCross {
 
     @AfterMethod
     public void tearDown(){
-        driver.quit();
+        CrossDriver.closeDriver();
     }
 }
